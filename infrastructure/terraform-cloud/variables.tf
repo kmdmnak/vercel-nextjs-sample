@@ -9,7 +9,7 @@ variable "terraform_cloud_token" {
 variable "github_branch_name" {
   type = string
   validation {
-    condition     = length(var.github_branch_name) > 0
+    condition     = length(var.git_branch) > 0
     error_message = "You must provide a GitHub branch name to use this module."
   }
 }
