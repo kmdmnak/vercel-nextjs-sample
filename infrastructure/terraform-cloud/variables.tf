@@ -6,7 +6,7 @@ variable "terraform_cloud_token" {
   }
 }
 
-variable "github_branch_name" {
+variable "git_branch" {
   type = string
   validation {
     condition     = length(var.github_branch_name) > 0
@@ -27,5 +27,13 @@ variable "workspace_name" {
   validation {
     condition     = length(var.workspace_name) > 0
     error_message = "You must provide a Terraform Cloud workspace name to use this module."
+  }
+}
+
+variable "vercel_api_token" {
+  type = string
+  validation {
+    condition     = length(var.vercel_api_token) > 0
+    error_message = "You must provide a Vercel API token to use this module."
   }
 }
