@@ -17,14 +17,3 @@ resource "tfe_project" "vercel-nextjs-sample" {
   name         = "vercel-nextjs-sample"
 }
 
-resource "tfe_workspace" "vercel-nextjs-sample" {
-  name           = var.workspace_name
-  organization   = tfe_organization.vercel-nextjs-sample.name
-  project_id     = tfe_project.vercel-nextjs-sample.id
-  queue_all_runs = false
-  vcs_repo {
-    branch         = var.github_branch_name
-    identifier     = "kmdmnak/vercel-nextjs-sample"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
