@@ -1,4 +1,4 @@
-resource "tfe_workspace" "resource-vercel" {
+resource "tfe_workspace" "resource_vercel" {
   name              = format("vercel-%s", var.workspace_name)
   organization      = tfe_organization.vercel-nextjs-sample.name
   project_id        = tfe_project.vercel-nextjs-sample.id
@@ -17,7 +17,7 @@ resource "tfe_variable" "vercel_api_token" {
   category     = "terraform"
   key          = "vercel_api_token"
   sensitive    = true
-  workspace_id = tfe_workspace.resource-vercel.id
+  workspace_id = tfe_workspace.resource_vercel.id
 }
 
 resource "tfe_variable" "git_branch" {
@@ -25,6 +25,6 @@ resource "tfe_variable" "git_branch" {
   category     = "terraform"
   key          = "git_branch"
   sensitive    = false
-  workspace_id = tfe_workspace.resource-vercel.id
+  workspace_id = tfe_workspace.resource_vercel.id
 }
 
