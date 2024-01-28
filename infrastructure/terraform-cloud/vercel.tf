@@ -28,3 +28,13 @@ resource "tfe_variable" "git_branch" {
   workspace_id = tfe_workspace.resource_vercel.id
 }
 
+resource "tfe_notification_configuration" "vercel_deploy_hook" {
+  count            = var.vercel_deploy_hook_url == null ? 0 : 1
+  name             = format("vercel-%s-deploy-hook", var.workspace_name)
+  enabled          = true
+  destination_type = "generic"
+  triggers         = ["run:completed"]
+  url              = var.vercel_deploy_hook_url
+  workspace_id     = tfe_workspace.resource_vercel.id
+}
+
