@@ -11,7 +11,7 @@ resource "vercel_project" "vercel-nextjs-sample" {
 }
 
 resource "vercel_deployment" "dev" {
-  project_id        = vercel_project.with_git.id
+  project_id        = vercel_project.vercel-nextjs-sample.id
   ref               = "dev"
   delete_on_destroy = true
 }
