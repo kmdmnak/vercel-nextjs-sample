@@ -18,12 +18,3 @@ resource "tfe_variable" "vercel_api_token" {
   sensitive    = true
   workspace_id = tfe_workspace.resource-vercel.id
 }
-
-resource "tfe_variable" "git_branch" {
-  value        = var.git_branch
-  category     = "terraform"
-  key          = "git_branch"
-  sensitive    = false
-  workspace_id = tfe_workspace.resource-vercel.id
-}
-
