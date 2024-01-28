@@ -30,10 +30,18 @@ variable "workspace_name" {
   }
 }
 
+/**
+ * Vercel
+ */
 variable "vercel_api_token" {
   type = string
   validation {
     condition     = length(var.vercel_api_token) > 0
     error_message = "You must provide a Vercel API token to use this module."
   }
+}
+
+variable "vercel_deploy_hook_url" {
+  type = string
+  nullable = true
 }
