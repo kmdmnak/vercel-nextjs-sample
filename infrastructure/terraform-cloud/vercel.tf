@@ -1,11 +1,10 @@
 resource "tfe_workspace" "resource-vercel" {
-  name              = format("vercel-%s", var.workspace_name)
+  name              = "vercel"
   organization      = tfe_organization.vercel-nextjs-sample.name
   project_id        = tfe_project.vercel-nextjs-sample.id
   queue_all_runs    = false
   working_directory = "infrastructure/vercel"
   vcs_repo {
-    branch         = var.git_branch
     identifier     = "kmdmnak/vercel-nextjs-sample"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
