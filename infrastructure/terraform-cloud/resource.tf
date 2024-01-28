@@ -16,4 +16,3 @@ resource "tfe_project" "vercel-nextjs-sample" {
   organization = tfe_organization.vercel-nextjs-sample.name
   name         = "vercel-nextjs-sample"
 }
-
